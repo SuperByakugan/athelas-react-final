@@ -37,7 +37,7 @@ export default function Home()
         });
         //Requesting the imageFilter endpoint with the link to our image to
         //Get a black and white image in return
-        axios.post('http://localhost:3000/api/imageFilter',
+        axios.post('/api/imageFilter',
         {
           responseType: 'blob',
           imgUrl: link,
