@@ -103,3 +103,8 @@ a {
 {
   cursor: pointer;
 }
+#otherImg
+{
+  display: none;
+  width: 50px;
+}
