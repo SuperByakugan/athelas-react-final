@@ -14,7 +14,11 @@ export default function Home()
   const uploadImage = () =>
   {
     //Checking if there is a file
-    if(file == null)return;
+    if(file == null){
+      alert("you have nothing selected");
+      return;
+    }
+    document.getElementById("otherImg").style.display = "block";
     console.log(storage);
     //Where to place the image in firebase storage
     const imageRef = ref(storage, `images/${file.name + v4()}`);
@@ -50,6 +54,7 @@ export default function Home()
           //We set img state to this updated link
           console.log("data:image/png;base64," + res.data.fileData);
           setImg(() => {
+            document.getElementById("otherImg").style.display = "none";
             return "data:image/png;base64," + res.data.fileData;
           })
         });
@@ -62,6 +67,7 @@ export default function Home()
       <div id = "form-wrapper">
         <div id="form-container">
           <h1>UPLOAD IMAGE</h1>
+          <img id="otherImg" src = "../loading.gif"></img>
           {/*Replacing upload with this icon*/}
           <label htmlFor = "imgUploadObj" id="imgUploadObjLabel">
             <img src = "../renameUpload.png" id="limg"/>
